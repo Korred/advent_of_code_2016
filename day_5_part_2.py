@@ -14,7 +14,7 @@ while found < 8:
     i += 1
     continue
   
-  if res[:5] == '00000' and pos in range(8):
+  if res[:5] == '00000' and pos < 8:
     if password[pos] is None:
       print(to_hash, res, res[5], res[6])
       found += 1
