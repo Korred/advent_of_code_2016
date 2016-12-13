@@ -5,8 +5,7 @@ found = 0
 i = 0
 
 while found < 8:
-  to_hash = door_id + str(i)
-  res = hashlib.md5(to_hash.encode("utf-8")).hexdigest()
+  res = hashlib.md5((door_id + str(i)).encode("utf-8")).hexdigest()
   
   try:
     pos = int(res[5])
