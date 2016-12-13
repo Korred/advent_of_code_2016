@@ -1,8 +1,7 @@
 import hashlib
 door_id = "uqwqemis"
 password = [None]*8
-found = 0
-i = 0
+found, i = 0, 0
 
 while found < 8:
   res = hashlib.md5((door_id + str(i)).encode("utf-8")).hexdigest()
