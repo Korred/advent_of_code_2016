@@ -5,9 +5,8 @@ def unzip_len(file):
     while(True):
         m = marker.search(file, curr_pos)
         if m:
-            sub_cnt = int(m.group(1))
-            rep_cnt = int(m.group(2))   
-            cnt += len(file[curr_pos:m.start()])+(unzip_len(file[m.end():m.end() + sub_cnt]) * rep_cnt)
+            sub_cnt, rep_cnt = map(int, (m.group(1), m.group(2)))
+            cnt += len(file[curr_pos:m.start()]) + (unzip_len(file[m.end():m.end() + sub_cnt]) * rep_cnt)
             curr_pos = m.end() + sub_cnt
         else:
             return cnt + len(file[curr_pos:])
