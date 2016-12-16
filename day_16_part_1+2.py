@@ -16,13 +16,9 @@ def get_checksum(data):
     new_checksum = []
     # split input into div parts
     for i in range(size//div):
-        init = 1
         c = data[(i * div):((i * div) + div)]
-        # check each pair
-        for a, b in zip(c[::2], c[1::2]):
-            if a != b:
-                init = 1 - init
-        new_checksum.append(init)
+        init =  0 if c.count('1')% 2 == 0 else 1
+        new_checksum.append(1-init)
 
     return "".join(map(str,new_checksum))
 
