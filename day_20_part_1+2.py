@@ -1126,6 +1126,9 @@ for l, r in ranges:
         first = right + 1
       allowed += (l - (right + 1))
       left, right = l, r
-    
+ 
+# do not forget possible remaining ips until 32bit end
+allowed += (4294967295 - right)
+
 print("First allowed IP: {}".format(first))
 print("Total number of allowed IPs: {}".format(allowed))
